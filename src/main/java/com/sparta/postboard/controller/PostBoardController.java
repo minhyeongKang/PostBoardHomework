@@ -33,7 +33,7 @@ public class PostBoardController {
     }
 
     @DeleteMapping("/posts/{id}")
-    public Long deletePostBoard(@PathVariable Long id) {
-        return postBoardService.deletePostBoard(id);
+    public Long deletePostBoard(@PathVariable Long id, @RequestBody PostBoardRequestDto requestDto) {
+        return postBoardService.deletePostBoard(id, requestDto);
     }
 }
