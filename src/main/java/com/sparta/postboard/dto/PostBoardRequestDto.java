@@ -7,4 +7,5 @@ public class PostBoardRequestDto {
 
     private String username;
     private String contents;
+    private String password;
 }

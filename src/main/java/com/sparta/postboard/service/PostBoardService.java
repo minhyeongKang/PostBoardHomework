@@ -20,9 +20,7 @@ public class PostBoardService {
 
     public PostBoardResponseDto createPostBoard(PostBoardRequestDto requestDto) {
         PostBoard postBoard = new PostBoard(requestDto);
-
         PostBoard savePostBoard = postBoardRepository.save(postBoard);
-
         PostBoardResponseDto postBoardResponseDto = new PostBoardResponseDto(postBoard);
 
         return postBoardResponseDto;

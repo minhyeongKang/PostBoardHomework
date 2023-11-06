@@ -11,6 +11,7 @@ public class PostBoardResponseDto {
     private Long id;
     private String username;
     private String contents;
+    private String password;
     private LocalDateTime createdAt;
     private LocalDateTime modifideAt;
 
@@ -18,6 +19,7 @@ public class PostBoardResponseDto {
         this.id = postBoard.getId();
         this.username = postBoard.getUsername();
         this.contents = postBoard.getContents();
+        this.password = postBoard.getPassword();
         this.createdAt = postBoard.getCreatedAt();
         this.modifideAt = postBoard.getModifiedAt();
     }

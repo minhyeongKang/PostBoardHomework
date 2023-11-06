@@ -311,17 +311,19 @@
     // 메모를 생성합니다.
     function writePost() {
       // 1. 작성한 메모를 불러옵니다.
+      let username = $('#username').val();
       let contents = $('#contents').val();
+      let password = $('#password').val();
 
       // 2. 작성한 메모가 올바른지 isValidContents 함수를 통해 확인합니다.
       if (isValidContents(contents) == false) {
         return;
       }
       // 3. genRandomName 함수를 통해 익명의 username을 만듭니다.
-      let username = genRandomName(10);
+      // let username = genRandomName(10);
 
       // 4. 전달할 data JSON으로 만듭니다.
-      let data = {'username': username, 'contents': contents};
+      let data = {'username': username, 'contents': contents, 'password': password};
 
       // 5. POST /api/memos 에 data를 전달합니다.
       $.ajax({
@@ -395,8 +397,8 @@
 
   <div class="area-write">
     <div>
-      <input placeholder="이름">
-      <input placeholder="비밀번호">
+      <input placeholder="이름" name="username" id="username">
+      <input placeholder="비밀번호" name="password" id="password">
     </div>
         <textarea class="field" placeholder="공유하고 싶은 소식을 입력해주세요" name="contents" id="contents" cols="30"
                   rows="10"></textarea>
@@ -408,10 +410,10 @@
       <!-- date/username 영역 -->
       <div class="metadata">
         <div class="date">
-          October 10, 2020
+
         </div>
         <div class="username">
-          anonymous
+
         </div>
       </div>
       <!-- contents 조회/수정 영역-->
@@ -421,7 +423,7 @@
       <!-- 버튼 영역-->
       <div class="footer">
         <img id="1-edit" class="icon-start-edit" src="images/edit.png" alt="" onclick="editPost('1')">
-        <img id="1-delete" class="icon-delete" src="images/delete.png" alt="" onclick="deleteOne('1')">
+        <img id="1-delete" class="icon-delete" src="images/delete.png" alt="" onclick="deleteOne('${id}')">
         <img id="1-submit" class="icon-end-edit" src="images/done.png" alt="" onclick="submitEdit('1')">
       </div>
     </div>

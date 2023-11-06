@@ -20,10 +20,13 @@ public class PostBoard extends TimeStamped {
     private String username;
     @Column(name = "contents", nullable = false, length = 500)
     private String contents;
+    @Column(name = "password", nullable = false)
+    private String password;
 
     public PostBoard(PostBoardRequestDto requestDto) {
         this.username = requestDto.getUsername();
         this.contents = requestDto.getContents();
+        this.password = requestDto.getPassword();
     }
 
     public void update(PostBoardRequestDto requestDto) {
